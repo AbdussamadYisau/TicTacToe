@@ -65,7 +65,7 @@ def checkGameStatus():
 def runCode():
     x = 0
 
-    while x < 9:
+    while x < 4:
         playerInput()
         displayBoard()
         checkGameStatus()
@@ -85,6 +85,13 @@ print (exampleBoard[1][0]," |",exampleBoard[1][1],"  |", exampleBoard[1][2])
 print ('------------')
 print (exampleBoard[2][0]," |",exampleBoard[2][1],"  |", exampleBoard[2][2])
 runCode()
+
+ans = input("Do you want to play another match? Y or N ")
+
+if ans == "Y" or ans == "y":
+    runCode()
+else: 
+    print("Thanks for playing!")
 
 
 
