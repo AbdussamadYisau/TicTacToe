@@ -6,6 +6,8 @@ board = [["", "", ""], ["", "", ""], ["", "", ""]]
 
 exampleBoard = [[1,2,3], [4,5,6], [7,8,9]]
 
+gameWon = 0
+
 #This function displays the board as is at that moment in time
 def displayBoard():
     global board
@@ -47,16 +49,21 @@ def playerTwoInput():
 
 def checkGameStatus():
     global board
+    global gameWon
     if board[0][0] == board[1][1] == board[2][2] == marker or board[0][2] == board[1][1] == board[2][0] == marker:
+        gameWon = 1
         print("{playerI} is the winner!".format(playerI = marker))
         sys.exit()
     elif board[0][0] == board[0][1] == board[0][2] == marker or board[0][1] == board[1][1] == board[2][1] == marker:
+        gameWon = 1
         print("{playerI} is the winner!".format(playerI = marker))
         sys.exit()
     elif board[1][0] == board[1][1] == board[1][2] == marker or board[2][0] == board[2][1] == board[2][2] == marker:
+        gameWon = 1
         print("{playerI} is the winner!".format(playerI = marker))
         sys.exit()
     elif board[0][0] == board[1][0] == board[2][0] == marker or board[0][2] == board[1][2] == board[2][2] == marker:
+        gameWon = 1
         print("{playerI} is the winner!".format(playerI = marker))
         sys.exit()
 
@@ -74,7 +81,8 @@ def runCode():
         checkGameStatus()
 
         x += 1
-    
+    if gameWon == 0:
+        playerInput()
     print("It's a tie. ")
 
 print("This is a sample board with three rows and three columns. ")
@@ -86,7 +94,7 @@ print ('------------')
 print (exampleBoard[2][0]," |",exampleBoard[2][1],"  |", exampleBoard[2][2])
 runCode()
 
-ans = input("Do you want to play another match? Y or N ")
+ans = input("Do you want to play another match? Y or N: ")
 
 if ans == "Y" or ans == "y":
     runCode()
