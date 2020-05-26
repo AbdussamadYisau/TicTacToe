@@ -15,7 +15,7 @@ Python 3.8
 
 ## Usage
 
-You can either run it using an IDE(VSCode, Sublime Text, Atom etc) or from the Command Line by running: 
+You can either run it using an IDE (VSCode, Sublime Text, Atom etc) or from the Command Line by running: 
 ``` bash 
 cd TicTacToe 
 python TicTacToe.py
