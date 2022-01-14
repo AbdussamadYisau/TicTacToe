@@ -1,4 +1,5 @@
 import sys
+import random
 
 # Declare a variable called board which would houses the X and O markers
 board = [["", "", ""], ["", "", ""], ["", "", ""]]
@@ -40,7 +41,22 @@ def playerTwoInput():
     global board
     global marker
 
-    print("Hey, Player Two - O", "\n")
+    print("Hey, it's the computer's turn - O", "\n")
+    marker = "O"
+    row = int(random.randint(1,3))
+    col = int(random.randint(1,3))
+
+    if board[row - 1][col - 1] == "":
+        board[row - 1][col -1] = marker
+    else:
+        print("That position is occupied, kindly pick another")
+        playerTwoInput()
+
+def playerTwoHumanInput():
+    global board
+    global marker
+
+    print("Hey, it's the computer's turn - O", "\n")
     marker = "O"
     row = int(input("Which row do you want to play on?(1-3): "))
     col = int(input("Which column do you want to play on?(1-3): "))
@@ -56,11 +72,18 @@ def rematch():
     global board
     global gameWon
     ans = input("Do you want to play another match? Y or N: ")
+
+    print(ans)
+
+    
     if ans == "Y" or ans == "y":
         board = [["", "", ""], ["", "", ""], ["", "", ""]]
 
         gameWon = 0
         runCode()
+
+    elif ans == "N" or ans == "n":
+        print("Thanks for playing!")
     else: 
         print("Thanks for playing!")
 
