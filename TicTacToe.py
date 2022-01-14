@@ -56,7 +56,7 @@ def playerTwoHumanInput():
     global board
     global marker
 
-    print("Hey, it's the computer's turn - O", "\n")
+    print("Hey, it's the second player's turn - O", "\n")
     marker = "O"
     row = int(input("Which row do you want to play on?(1-3): "))
     col = int(input("Which column do you want to play on?(1-3): "))
@@ -65,7 +65,7 @@ def playerTwoHumanInput():
         board[row - 1][col -1] = marker
     else:
         print("That position is occupied, kindly pick another")
-        playerTwoInput()
+        playerTwoHumanInput()
 
 #This function determines whether there would be a rematch or not
 def rematch():
@@ -123,7 +123,8 @@ def runCode():
         playerInput()
         displayBoard()
         checkGameStatus()
-        playerTwoInput()
+        # playerTwoInput()
+        playerTwoHumanInput()
         displayBoard()
         checkGameStatus()
 
